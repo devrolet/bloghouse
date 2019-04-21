@@ -1,22 +1,22 @@
 body {
   font: 16px Helvetica, Arial, sans-serif; /* Change Global Font Later */
-  background: #fff; /* Change this color too */
-  color: #424242;
+  background: #E6EFF3; /* Change this color too */
+  color: #73C0F4;
 }
 
 .logo{
   text-align: center;
   margin: auto;
-  displa: block;
+  display: block;
 }
 
-.container {
+/* .container {
   width: 940px;
   border: 1px solid #ccc;
   margin: 20px auto;
   padding: 20px;
   border-top: #424242 3px solid;
-}
+} */
 
 .clr{
   clear: both;
@@ -43,7 +43,7 @@ p{
 }
 
 nav{
-  background: #404137;
+  background: #728CA3;
   color: #fff;
   overflow: auto;
   height: 40px;
