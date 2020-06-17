@@ -2,19 +2,25 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(href='#')
+            img(alt='BlogEngine' src='...')
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/') Home
+            li
+              a(href='/posts/add') Add Post
+            li
+              a(href='/authors/add') Add Author
+            li
+              a(href='/categories/add') Add Category
+    != messages()
     .container
-      img.logo(src='/images/bloghouse-logo.png')
-      nav
-        ul
-          li
-            a(href='/') Home
-          li
-            a(href='/posts/add') Add Post
-          li
-            a(href='/categories/add') Add Category
-      != messages()
       block content
-      footer
-        p Bloghouse &copy; 2017
+    footer
+      p &copy; 2020 Bloghouse 

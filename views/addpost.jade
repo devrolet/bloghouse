@@ -26,6 +26,8 @@ block content
 			select.form-control(name='author')
 				option(value='Chet Hill') Chet Hill
 				option(value='Elizabeth Hill') Elizabeth Hill
+				//- each author, i in authors
+				//- 	option(value='#{author.name}') #{author.name}
 		input.btn.btn-default(name='submit',type='submit',value='Save')
 		script(src='/ckeditor/ckeditor.js')
 		script

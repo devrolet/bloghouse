@@ -3,7 +3,7 @@ var router = express.Router();
 var multer = require('multer');
 var upload = multer({dest: './public/images'});
 var mongo = require('mongodb');
-var db = require('monk')('localhost/bloghouse');
+var db = require('monk')('mongodb://chill-admin:Perm*9mav@ds157571.mlab.com:57571/bloghouse', { useUnifiedTopology: true });
 
 router.get('/show/:id', function(req, res, next) {
   var posts = db.get('posts');
@@ -15,18 +15,28 @@ router.get('/show/:id', function(req, res, next) {
   });
 });
 
-// Add Post
+
 router.get('/add', function(req, res, next) {
   var categories = db.get('categories');
 
   categories.find({},{},function(err, categories){
     res.render('addpost',{
       'title': 'Add Post',
-      'categories': categories
+      'categories': categories,
+    });
+  });
+
+  var authors = db.get('authors');
+
+  authors.find({},{},function(err, authors){
+    res.render('addpost',{
+      'title': 'Add Post',
+      'authors': authors,
     });
   });
 });
 
+// Add Post
 router.post('/add',  upload.single('mainimage'), function(req, res, next) {
   // Get Form Values
   var title = req.body.title;

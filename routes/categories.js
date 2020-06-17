@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb');
-var db = require('monk')('localhost/bloghouse');
+var db = require('monk')('mongodb://chill-admin:Perm*9mav@ds157571.mlab.com:57571/bloghouse', { useUnifiedTopology: true });
 
 router.get('/show/:category', function(req, res, next) {
     var posts = db.get('posts');

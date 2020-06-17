@@ -10,11 +10,12 @@ var upload = multer({dest: 'uploads/'});
 var expressValidator = require('express-validator');
 
 var mongo = require('mongodb');
-var db = require('monk')('localhost/bloghouse');
+var db = require('monk')('mongodb://chill-admin:Perm*9mav@ds157571.mlab.com:57571/bloghouse', { useUnifiedTopology: true });
 
 var routes = require('./routes/index');
 var posts = require('./routes/posts');
 var categories = require('./routes/categories');
+var authors = require('./routes/authors');
 
 var app = express();
 
@@ -40,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Express Session
 app.use(session({
   secret: 'secret',
-  saveUnititialized: true,
+  saveUninitialized: true,
   resave: true
 }));
 
@@ -78,6 +79,7 @@ app.use(function(req, res, next){
 app.use('/', routes);
 app.use('/posts', posts);
 app.use('/categories', categories);
+app.use('/authors', authors);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
